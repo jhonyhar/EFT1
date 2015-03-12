@@ -23,14 +23,36 @@ namespace EFT1
       try
       {
         Orang p = new Orang();
-        p.Id = 1; p.Nama = "sadas"; p.TanggalLahir = new DateTime(1990, 06, 16);
+        p.Nama = "sadas"; p.TanggalLahir = new DateTime(1990, 06, 16);
         iCData.dtOrang.Add(p);
         iCData.SaveChanges();
+
+        List<Orang> op = (from iDt in iCData.dtOrang select iDt).ToList<Orang>();
+        MessageBox.Show(op.Count.ToString());
+
       }
       catch (Exception ex)
       {
         MessageBox.Show(ex.Message);
       }
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      try
+      {
+        foreach (Orang dtOrg in (from iDt in iCData.dtOrang select iDt).ToList<Orang>())
+        {
+          iCData.dtOrang.Remove(dtOrg);
+        }
+        iCData.SaveChanges();
+        MessageBox.Show("OK");
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
+      
     }
   }
 }
