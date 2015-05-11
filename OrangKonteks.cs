@@ -9,6 +9,9 @@ namespace EFT1
 {
   class OrangKonteks : DbContext
   {
+
+    public OrangKonteks() :base("abc") { }
+
     public DbSet<Orang> dtOrang { get; set; }
 
   }
