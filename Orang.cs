@@ -17,7 +17,7 @@ namespace EFT1
     {
       get { return DateTime.Today.Year - TanggalLahir.Year; }
     }
-
+		//walao
     public string Alamat { get; set; }
   }
 }
